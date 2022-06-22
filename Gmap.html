@@ -1,0 +1,56 @@
+<html>
+  <head>
+    <title>Add Map</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <script >
+	// Initialize and add the map
+function initMap() {
+  // The location of Pune EON PARK
+  const pune = { lat: 18.550200, lng: 73.950302 };
+  // The map, Pune EON PARK
+  const map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 10,
+    center: pune,
+  });
+  // The marker, positioned at Uluru
+  const marker = new google.maps.Marker({
+    position: pune,
+    map: map,
+  });
+}
+
+window.initMap = initMap;
+	
+	</script>
+	
+	
+	<style>
+	/* Set the size of the div element that contains the map */
+#map {
+  height: 400px;
+  /* The height is 400 pixels */
+  width: 100%;
+  /* The width is the width of the web page */
+}
+
+	</style>
+  </head>
+  <body>
+    <h3>My Google Maps Demo</h3>
+    <!--The div element for the map -->
+    <div id="map"></div>
+
+    <!-- 
+     The `defer` attribute causes the callback to execute after the full HTML
+     document has been parsed. For non-blocking uses, avoiding race conditions,
+     and consistent behavior across browsers, consider loading using Promises
+     with https://www.npmjs.com/package/@googlemaps/js-api-loader.
+    -->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly"
+      defer
+    ></script>
+  </body>
+</html>
